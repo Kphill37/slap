@@ -83,7 +83,7 @@ h2 > #name {
   }
 }
 
-/* @media (max-width: 767px) {
+@media (max-width: 767px) {
   .fullscreen-bg {
     background: url('../img/videoframe.jpg') center center / cover no-repeat;
   }
@@ -91,7 +91,7 @@ h2 > #name {
   .fullscreen-bg__video {
     display: none;
   }
-} */
+}
 
 img {
   max-height: 500px;
