@@ -63,14 +63,10 @@ function giveHammer() {
 
 function giveStarRod() {
   boss.items.push(items.starRod)
-  console.log(boss.items[0])
   boss.defence = items.starRod.defenseModifier
   addBossDefenses()
-  console.log(boss.defence)
   boss.attack = items.starRod.attackModifier
   addBossAttack()
-  console.log(boss.attack)
-
   totalBossItems()
 }
 
@@ -115,7 +111,6 @@ boss.defence = 0
 function addBossDefenses() {
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
-    console.log(item.defenseModifier)
     boss.defence += item.defenseModifier
   }
   drawBossDefenses()
@@ -140,9 +135,7 @@ boss.attack = 0
 function addBossAttack() {
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
-    console.log(item.attackModifier)
     boss.attack += item.attackModifier
-    console.log(boss.attack)
   }
   drawBossAttack()
   return boss.attack
@@ -153,7 +146,6 @@ function addBossAttack() {
 
 function drawBossAttack() {
   var myJSON = JSON.stringify(boss.attack);
-  console.log(myJSON);
   document.getElementById("bossAttack").innerText = myJSON;
 }
 
@@ -258,19 +250,13 @@ let outcome = 0
 function slap() {
   toughGuyStatus()
   outcome -= 1 + player.attackPower
-  console.log(outcome)
-  console.log(boss.defence)
 
   if (boss.defence > 0) {
-    console.log(boss.defence)
     boss.defence += outcome
-    console.log(boss.health)
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
-    console.log(boss.defence)
     boss.health -= player.attackPower + 1
-    console.log(boss.health)
     updateBoss()
   }
 
@@ -279,19 +265,13 @@ function kick() {
   let outcome = 0
   toughGuyStatus()
   outcome -= 10 + player.attackPower
-  console.log(outcome)
-  console.log(boss.defence)
 
   if (boss.defence > 0) {
-    console.log(boss.defence)
     boss.defence += outcome
-    console.log(boss.health)
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
-    console.log(boss.defence)
     boss.health -= player.attackPower + 10
-    console.log(boss.health)
     updateBoss()
   }
 }
@@ -299,19 +279,13 @@ function punch() {
   let outcome = 0
   toughGuyStatus()
   outcome -= player.attackPower + 5
-  console.log(outcome)
-  console.log(boss.defence)
 
   if (boss.defence > 0) {
-    console.log(boss.defence)
     boss.defence = outcome
-    console.log(boss.health)
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
-    console.log(boss.defence)
     boss.health += outcome
-    console.log(boss.health)
     updateBoss()
   }
 
@@ -426,14 +400,19 @@ function resetItems() {
   document.getElementById("bossItem2").innerText = " "
   document.getElementById("bossItem3").innerText = " "
 }
+
+
 function checkForKo() {
   if (player.health <= 0 && boss.health > 0) {
     alert("Bowser Wins!")
+    return
   }
   else if (boss.health <= 0 && player.health > 0) {
     alert("Mario Wins!")
+    return
   }
   else if (boss.health <= 0 && player.health <= 0) {
     alert("It's a draw!")
+    return
   }
 }
