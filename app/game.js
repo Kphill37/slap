@@ -292,6 +292,7 @@ function punch() {
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
+    boss.health -= player.attackPower + 5
     updateBoss()
   }
 
