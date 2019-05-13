@@ -24,7 +24,7 @@ var items = {
   koopaShell: { name: "Koopa Shell", modifier: 5, description: "The shell straight off the back of a Koopa.  You're just borrowing it.  +5 attack" },
   Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many! +15 attack" },
   starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "The Star Rod is a magical rod that can make all wishes come true.  Gives Bowser massive additional Attack and Defense!" },
-  toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back" },
+  toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back.  Bowser will hit for a number between 5-15 + Bonus Attack" },
   gigaBowser: { name: "Giga Bowser", attackModifier: 0, defenseModifier: 0, description: "Gives Bowser an additional 50 health." }
 }
 // ----------------------------------------------------------------------------------------------
@@ -62,10 +62,11 @@ function giveHammer() {
 //Beginning of Boss Equipment-------------------------------------------------------------------
 
 function giveStarRod() {
+  document.getElementById("starRod").disabled = true;
   boss.items.push(items.starRod)
-  boss.defence = items.starRod.defenseModifier
+  boss.defence += items.starRod.defenseModifier
   addBossDefenses()
-  boss.attack = items.starRod.attackModifier
+  boss.attack += items.starRod.attackModifier
   addBossAttack()
   totalBossItems()
 }
@@ -74,13 +75,19 @@ function giveStarRod() {
 
 var toughGuyIndicator = false;
 function toughGuy() {
+  document.getElementById("toughGuy").disabled = true;
   toughGuyIndicator = true;
   boss.items.push(items.toughGuy)
+  boss.defence += items.toughGuy.defenseModifier
+  addBossDefenses()
+  boss.attack += items.toughGuy.attackModifier
+  addBossAttack()
   totalBossItems()
 }
 
 
 function gigaBowser() {
+  document.getElementById("gigaTransformation").disabled = true;
   boss.health += 50;
   boss.items.push(items.gigaBowser)
   document.getElementById("bossHealth").innerText = boss.health
@@ -111,7 +118,7 @@ boss.defence = 0
 function addBossDefenses() {
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
-    boss.defence += item.defenseModifier
+    boss.defence + item.defenseModifier
   }
   drawBossDefenses()
   return boss.defence
@@ -135,7 +142,7 @@ boss.attack = 0
 function addBossAttack() {
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
-    boss.attack += item.attackModifier
+    boss.attack + item.attackModifier
   }
   drawBossAttack()
   return boss.attack
