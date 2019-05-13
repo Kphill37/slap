@@ -1,3 +1,6 @@
+window.onload = function () {
+  document.getElementById("my_audio").play();
+}
 // Beginning of Players and Items-----------------------------------------------------------------
 var boss = {
   name: 'Bowser',
