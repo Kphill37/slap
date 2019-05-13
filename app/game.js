@@ -180,6 +180,7 @@ function totalItems() {
 
 var maxBossItems = 0
 function totalBossItems() {
+  debugger
   maxBossItems++
   if (maxBossItems == 1) {
     var myJSON = JSON.stringify(boss.items[0].name + ":  " + boss.items[0].description);
