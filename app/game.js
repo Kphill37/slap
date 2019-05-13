@@ -22,7 +22,7 @@ var items = {
   Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many!" },
   starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "A powerful wand that lets Bowser negate Damage, and deal more" },
   toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back" },
-  gigaBowser: { name: "Giga Bowser", description: "Allows Bowser to fight back" }
+  gigaBowser: { name: "Giga Bowser", attackModifier: 0, defenseModifier: 0, description: "Allows Bowser to fight back" }
 }
 // ----------------------------------------------------------------------------------------------
 
@@ -58,15 +58,16 @@ function giveHammer() {
 
 //Beginning of Boss Equipment-------------------------------------------------------------------
 
-function giveStarWand() {
-  boss.items.push(items.starWand)
+function giveStarRod() {
+  boss.items.push(items.starRod)
   console.log(boss.items[0])
-  boss.defence = items.starWand.defenseModifier
-  console.log(boss.defence)
-  boss.attack = items.starWand.attackModifier
-  console.log(boss.attack)
-  addBossAttack()
+  boss.defence = items.starRod.defenseModifier
   addBossDefenses()
+  console.log(boss.defence)
+  boss.attack = items.starRod.attackModifier
+  addBossAttack()
+  console.log(boss.attack)
+
   totalBossItems()
 }
 
@@ -84,8 +85,6 @@ function gigaBowser() {
   boss.health += 50;
   boss.items.push(items.gigaBowser)
   document.getElementById("bossHealth").innerText = boss.health
-  addBossAttack()
-  addBossDefenses()
   totalBossItems()
 }
 
@@ -111,6 +110,7 @@ function addPlayerMods() {
 
 boss.defence = 0
 function addBossDefenses() {
+  debugger
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
     console.log(item.defenseModifier)
@@ -123,6 +123,7 @@ function addBossDefenses() {
 
 
 function drawBossDefenses() {
+  debugger
   var myJSON = JSON.stringify(boss.defence)
   document.getElementById("bossDefense").innerText = myJSON
 }
@@ -145,7 +146,9 @@ function addBossAttack() {
 
 
 function drawBossAttack() {
+  debugger
   var myJSON = JSON.stringify(boss.attack);
+  console.log(myJSON);
   document.getElementById("bossAttack").innerText = myJSON;
 }
 
@@ -189,7 +192,7 @@ function totalBossItems() {
   else if (maxBossItems >= 3) {
     var myJSON = JSON.stringify(boss.items[2].name);
     document.getElementById("bossItem3").innerText = myJSON;
-    document.getElementById("starWand").disabled = true;
+    document.getElementById("Star Rod").disabled = true;
     document.getElementById("toughGuy").disabled = true;
     document.getElementById("gigaTransformation").disabled = true;
   }
@@ -324,7 +327,7 @@ function buttonBehavior() {
     document.getElementById("slapAttack").disabled = false;
     document.getElementById("punchAttack").disabled = false;
     document.getElementById("kickAttack").disabled = false;
-    document.getElementById("starWand").disabled = false;
+    document.getElementById("starRod").disabled = false;
     document.getElementById("toughGuy").disabled = false;
     document.getElementById("gigaTransformation").disabled = false;
   }
@@ -379,7 +382,7 @@ function resetBoss() {
   maxBossItems = 0
   document.getElementById("bossAttack").innerText = ''
   document.getElementById("bossDefense").innerText = ''
-  document.getElementById("starWand").disabled = false;
+  document.getElementById("starRod").disabled = false;
   document.getElementById("toughGuy").disabled = false;
   document.getElementById("gigaTransformation").disabled = false;
   drawBoss()
