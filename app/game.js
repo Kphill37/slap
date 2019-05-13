@@ -192,7 +192,7 @@ function totalBossItems() {
   else if (maxBossItems >= 3) {
     var myJSON = JSON.stringify(boss.items[2].name + ":  " + boss.items[2].description);
     document.getElementById("bossItem3").innerText = myJSON;
-    document.getElementById("Star Rod").disabled = true;
+    document.getElementById("starRod").disabled = true;
     document.getElementById("toughGuy").disabled = true;
     document.getElementById("gigaTransformation").disabled = true;
   }
