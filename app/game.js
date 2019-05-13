@@ -84,6 +84,8 @@ function gigaBowser() {
   boss.health += 50;
   boss.items.push(items.gigaBowser)
   document.getElementById("bossHealth").innerText = boss.health
+  addBossAttack()
+  addBossDefenses()
   totalBossItems()
 }
 
