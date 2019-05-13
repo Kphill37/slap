@@ -184,8 +184,10 @@ function totalItems() {
 
 var maxBossItems = 0
 function totalBossItems() {
+  debugger
   maxBossItems++
   if (maxBossItems == 1) {
+    console.log(maxBossItems)
     var myJSON = JSON.stringify(boss.items[0].name + ":  " + boss.items[0].description);
     document.getElementById("bossItem1").innerText = myJSON;
   }
@@ -193,7 +195,7 @@ function totalBossItems() {
     var myJSON = JSON.stringify(boss.items[1].name + ":  " + boss.items[1].description);
     document.getElementById("bossItem2").innerText = myJSON;
   }
-  else if (maxBossItems >= 3) {
+  else if (maxBossItems <= 3) {
     var myJSON = JSON.stringify(boss.items[2].name + ":  " + boss.items[2].description);
     document.getElementById("bossItem3").innerText = myJSON;
     document.getElementById("starRod").disabled = true;
@@ -253,13 +255,13 @@ function toughGuyStatus() {
 
 
 //Attack Calculations------------------------------------------------------------------
-let outcome = 0
+
 function slap() {
+  buttonBehavior()
   toughGuyStatus()
-  outcome -= 1 + player.attackPower
 
   if (boss.defence > 0) {
-    boss.defence += outcome
+    boss.defence -= player.attackPower + 1
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
@@ -269,12 +271,11 @@ function slap() {
 
 }
 function kick() {
-  let outcome = 0
+  buttonBehavior()
   toughGuyStatus()
-  outcome -= 10 + player.attackPower
 
   if (boss.defence > 0) {
-    boss.defence += outcome
+    boss.defence -= player.attackPower + 10
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
@@ -283,16 +284,14 @@ function kick() {
   }
 }
 function punch() {
-  let outcome = 0
+  buttonBehavior()
   toughGuyStatus()
-  outcome -= player.attackPower + 5
 
   if (boss.defence > 0) {
-    boss.defence = outcome
+    boss.defence -= player.attackPower + 5
     drawBossDefenses()
   }
   else if (boss.defence <= 0) {
-    boss.health += outcome
     updateBoss()
   }
 
@@ -308,13 +307,10 @@ function buttonBehavior() {
     document.getElementById("punchAttack").disabled = true;
     document.getElementById("kickAttack").disabled = true;
   }
-  else {
+  else if (boss.health > 0 || player.health > 0) {
     document.getElementById("slapAttack").disabled = false;
     document.getElementById("punchAttack").disabled = false;
     document.getElementById("kickAttack").disabled = false;
-    document.getElementById("starRod").disabled = false;
-    document.getElementById("toughGuy").disabled = false;
-    document.getElementById("gigaTransformation").disabled = false;
   }
 }
 
