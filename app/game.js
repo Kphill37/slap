@@ -17,12 +17,12 @@ var player = {
 }
 
 var items = {
-  fireFlower: { name: "Fire Flower", modifier: 7, description: "A wild flower commonly found throughout the Mushroom Kingdom.  Launches a fiery blaze" },
-  koopaShell: { name: "Koopa Shell", modifier: 5, description: "The shell straight off the back of a Koopa.  It's green!" },
-  Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many!" },
-  starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "A powerful wand that lets Bowser negate Damage, and deal more" },
+  fireFlower: { name: "Fire Flower", modifier: 7, description: "A wild flower commonly found throughout the Mushroom Kingdom.  Launches a fast fiery blaze.  +7 attack" },
+  koopaShell: { name: "Koopa Shell", modifier: 5, description: "The shell straight off the back of a Koopa.  You're just borrowing it.  +5 attack" },
+  Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many! +15 attack" },
+  starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "The Star Rod is a magical rod that can make all wishes come true.  Gives Bowser massive additional Attack and Defense!" },
   toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back" },
-  gigaBowser: { name: "Giga Bowser", attackModifier: 0, defenseModifier: 0, description: "Allows Bowser to fight back" }
+  gigaBowser: { name: "Giga Bowser", attackModifier: 0, defenseModifier: 0, description: "Gives Bowser an additional 50 health." }
 }
 // ----------------------------------------------------------------------------------------------
 
@@ -160,15 +160,15 @@ var maxItems = 0
 function totalItems() {
   maxItems++
   if (maxItems == 1) {
-    var myJSON = JSON.stringify(player.items[0].name);
+    var myJSON = JSON.stringify(player.items[0].name + ":  " + player.items[0].description);
     document.getElementById("item1").innerText = myJSON;
   }
   else if (maxItems == 2) {
-    var myJSON = JSON.stringify(player.items[1].name);
+    var myJSON = JSON.stringify(player.items[1].name + ":  " + player.items[1].description);
     document.getElementById("item2").innerText = myJSON;
   }
   else if (maxItems >= 3) {
-    var myJSON = JSON.stringify(player.items[2].name);
+    var myJSON = JSON.stringify(player.items[2].name + ":  " + player.items[2].description);
     document.getElementById("item3").innerText = myJSON;
     document.getElementById("fireFlower").disabled = true;
     document.getElementById("koopaShell").disabled = true;
@@ -182,15 +182,15 @@ var maxBossItems = 0
 function totalBossItems() {
   maxBossItems++
   if (maxBossItems == 1) {
-    var myJSON = JSON.stringify(boss.items[0].name);
+    var myJSON = JSON.stringify(boss.items[0].name + ":  " + boss.items[0].description);
     document.getElementById("bossItem1").innerText = myJSON;
   }
   else if (maxBossItems == 2) {
-    var myJSON = JSON.stringify(boss.items[1].name);
+    var myJSON = JSON.stringify(boss.items[1].name + ":  " + boss.items[1].description);
     document.getElementById("bossItem2").innerText = myJSON;
   }
   else if (maxBossItems >= 3) {
-    var myJSON = JSON.stringify(boss.items[2].name);
+    var myJSON = JSON.stringify(boss.items[2].name + ":  " + boss.items[2].description);
     document.getElementById("bossItem3").innerText = myJSON;
     document.getElementById("Star Rod").disabled = true;
     document.getElementById("toughGuy").disabled = true;
