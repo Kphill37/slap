@@ -24,7 +24,7 @@ var items = {
   koopaShell: { name: "Koopa Shell", modifier: 5, description: "The shell straight off the back of a Koopa.  You're just borrowing it.  +5 attack" },
   Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many! +15 attack" },
   starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "The Star Rod is a magical rod that can make all wishes come true.  Gives Bowser massive additional Attack and Defense!" },
-  toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back.  Bowser will hit for a number between 5-15 + Bonus Attack" },
+  toughGuy: { name: "Tough Guy", attackModifier: 8, defenseModifier: 5, description: "Allows Bowser to fight back.  Bowser will hit for a number between 5-15 + Bonus Attack" },
   gigaBowser: { name: "Giga Bowser", attackModifier: 0, defenseModifier: 0, description: "Gives Bowser an additional 50 health." }
 }
 // ----------------------------------------------------------------------------------------------
@@ -239,7 +239,7 @@ function getRandomInt(max) {
 
 function toughGuyStatus() {
   if (toughGuyIndicator == true) {
-    getRandomInt(15)
+    getRandomInt(10)
     player.hits++
     player.health -= toughGuyDamage + boss.attack
     updatePlayer()
@@ -341,7 +341,6 @@ function updatePlayer() {
     document.getElementById("playerHealth").innerText = player.health
   }
   buttonBehavior()
-  checkForKo()
 }
 // --------------------------------------------------------------------------------------
 
@@ -406,11 +405,9 @@ function resetItems() {
 function checkForKo() {
   if (player.health <= 0 && boss.health > 0) {
     alert("Bowser Wins!")
-
   }
   else if (boss.health <= 0 && player.health > 0) {
     alert("Mario Wins!")
-
   }
   else if (boss.health <= 0 && player.health <= 0) {
     alert("It's a draw!")
