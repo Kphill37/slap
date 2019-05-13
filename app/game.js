@@ -20,7 +20,7 @@ var items = {
   fireFlower: { name: "Fire Flower", modifier: 7, description: "A wild flower commonly found throughout the Mushroom Kingdom.  Launches a fiery blaze" },
   koopaShell: { name: "Koopa Shell", modifier: 5, description: "The shell straight off the back of a Koopa.  It's green!" },
   Hammer: { name: "Hammer", modifier: 15, description: "A legendary hammer that was first used by Mario to take down the likes of Donkey Kong.  A favored weapon of many!" },
-  starWand: { name: "Star Wand", attackModifier: 8, defenseModifier: 5, description: "A powerful wand that lets Bowser negate Damage, and deal more" },
+  starRod: { name: "Star Rod", attackModifier: 8, defenseModifier: 5, description: "A powerful wand that lets Bowser negate Damage, and deal more" },
   toughGuy: { name: "Tough Guy", attackModifier: 16, defenseModifier: 5, description: "Allows Bowser to fight back" },
   gigaBowser: { name: "Giga Bowser", description: "Allows Bowser to fight back" }
 }
