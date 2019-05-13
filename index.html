@@ -11,7 +11,10 @@
 </head>
 
 <body>
-  <audio id="my_audio" src="/assets/1-06 Bowser.mp3" loop="loop"></audio>
+  <audio controls autoplay>
+    <source src="/assets/1-06 Bowser.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
   <div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
       <source src="assets/BowsersCastleProjectM.mp4">
