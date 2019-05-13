@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/game.css">
+  <title>SlapGame</title>
+</head>
+
+<body>
+  <div class="fullscreen-bg">
+    <video loop muted autoplay poster="" class="fullscreen-bg__video">
+    </video>
+  </div>
+  <button id="rematch" class="btn btn-info" onclick="rematch()">
+    <h3>Rematch</h3>
+  </button>
+  <header class="row">
+  </header>
+
+
+
+  <div class="row bossInfo">
+    <div class="col-6">
+
+      <h2>Name: <span id="bossName">
+          <h2></h2>
+        </span></h2>
+
+      <h2>Health: <span id="bossHealth">
+          <h2></h2>
+        </span></h2>
+
+      <h2>Hits: <span id="bossHits">
+          <h2></h2>
+        </span></h2>
+      <h2>Bonus Attack: <span id="bossAttack">
+          <h2></h2>
+        </span></h2>
+      <h2>Bonus Defense: <span id="bossDefense">
+          <h2></h2>
+        </span></h2>
+      <div class="bossItems">
+        <h4>Equipment</h4>
+        <hr>
+        <ul>
+          <li id="bossItem1">
+
+          </li>
+          <li id="bossItem2">
+
+          </li>
+          <li id="bossItem3">
+
+          </li>
+        </ul>
+      </div>
+      <button id="starWand" class="btn btn-info" onclick="giveStarWand()">
+        <h3>Give Star Wand</h3>
+      </button>
+      <button id="toughGuy" class="btn btn-info" onclick="toughGuy()">
+        <h3>Tough Guy</h3>
+      </button>
+      <button id="gigaTransformation" class="btn btn-info" onclick="gigaBowser()">
+        <h3>Giga Bowser!</h3>
+      </button>
+
+
+    </div>
+
+    <div class="col-6 bossPortrait">
+      <img src="assets/transparent-bowser.png" alt="">
+    </div>
+  </div>
+  </div>
+
+  <hr>
+
+
+  <div class="playerContent">
+    <div class="row">
+      <div class="col-1">
+        <h2>Name: <span id="playerName">
+            <h2></h2>
+          </span></h2>
+
+        <h2>Health: <span id="playerHealth">
+            <h2></h2>
+          </span></h2>
+
+        <h2>Hits: <span id="playerhits">
+            <h2></h2>
+          </span></h2>
+      </div>
+      <div class="col-2 playerPortrait">
+        <img src="assets/transparent-mario-mad.png" alt="">
+      </div>
+      <div class="col-3">
+      </div>
+      <div class="col-3 itemList">
+        <h4>Items</h4>
+        <hr>
+        <ul>
+          <li id="item1">
+
+          </li>
+          <li id="item2">
+
+          </li>
+          <li id="item3">
+
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <button id="slapAttack" class="btn-block btn-danger" onclick="slap()">
+          <h3>Slap</h3>
+        </button>
+      </div>
+      <div class="col-2">
+        <button id="punchAttack" class="btn-block btn-danger" onclick="punch()">
+          <h3>Punch</h3>
+        </button>
+      </div>
+      <div class="col-2">
+        <button id="kickAttack" class="btn-block btn-danger" onclick="kick()">
+          <h3>Kick</h3>
+        </button>
+      </div>
+      <div class="col-6 bonusDamageCounter">
+        <h2>Bonus Damage: <span id="bonusDamage">
+            <h2></h2>
+          </span></h2>
+      </div>
+
+    </div>
+    <!-- --------------------------------------------------------------------------------------------------------- -->
+    <div class="row">
+      <div class="col-2">
+        <button id="fireFlower" class="btn-block btn-primary" onclick="giveFireFlower()">
+          <h3>Equip Fire Flower</h3>
+        </button>
+      </div>
+      <div class="col-2">
+        <button id="koopaShell" class="btn-block btn-primary" onclick="giveKoopaShell()">
+          <h3>Equip Koopa Shell</h3>
+        </button>
+      </div>
+      <div class="col-2">
+        <button id="Hammer" class="btn-block btn-primary" onclick="giveHammer()">
+          <h3>Equip Hammer</h3>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="app/game.js"></script>
+</body>
+
+</html>
