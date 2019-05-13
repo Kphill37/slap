@@ -405,14 +405,14 @@ function resetItems() {
 function checkForKo() {
   if (player.health <= 0 && boss.health > 0) {
     alert("Bowser Wins!")
-    return
+
   }
   else if (boss.health <= 0 && player.health > 0) {
     alert("Mario Wins!")
-    return
+
   }
   else if (boss.health <= 0 && player.health <= 0) {
     alert("It's a draw!")
-    return
+
   }
 }
