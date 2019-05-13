@@ -113,7 +113,6 @@ function addPlayerMods() {
 
 boss.defence = 0
 function addBossDefenses() {
-  debugger
   for (let i = 0; i < boss.items.length; i++) {
     let item = boss.items[i]
     console.log(item.defenseModifier)
@@ -126,9 +125,13 @@ function addBossDefenses() {
 
 
 function drawBossDefenses() {
-  debugger
   var myJSON = JSON.stringify(boss.defence)
-  document.getElementById("bossDefense").innerText = myJSON
+  if (boss.defence < 0) {
+    document.getElementById("bossDefense").innerText = 0
+  }
+  else {
+    document.getElementById("bossDefense").innerText = boss.defence
+  }
 }
 
 
@@ -149,7 +152,6 @@ function addBossAttack() {
 
 
 function drawBossAttack() {
-  debugger
   var myJSON = JSON.stringify(boss.attack);
   console.log(myJSON);
   document.getElementById("bossAttack").innerText = myJSON;
@@ -183,7 +185,6 @@ function totalItems() {
 
 var maxBossItems = 0
 function totalBossItems() {
-  debugger
   maxBossItems++
   if (maxBossItems == 1) {
     var myJSON = JSON.stringify(boss.items[0].name + ":  " + boss.items[0].description);
@@ -242,8 +243,7 @@ function toughGuyStatus() {
     getRandomInt(15)
     player.hits++
     player.health -= toughGuyDamage + boss.attack
-    document.getElementById("playerHealth").innerText = player.health
-    document.getElementById("playerhits").innerText = player.hits
+    updatePlayer()
   }
   else if (toughGuyIndicator == false) {
     return
@@ -345,13 +345,26 @@ function buttonBehavior() {
 function updateBoss() {
   boss.hits++
   document.getElementById("bossHits").innerText = boss.hits
-  document.getElementById("bossHealth").innerText = boss.health
+
+  if (boss.health < 0) {
+    document.getElementById("bossHealth").innerText = 0
+  }
+  else {
+    document.getElementById("bossHealth").innerText = boss.health
+  }
   buttonBehavior()
   checkForKo()
 }
 function updatePlayer() {
+  debugger
   document.getElementById("playerhits").innerText = player.hits
-  document.getElementById("playerHealth").innerText = player.health
+
+  if (player.health < 0) {
+    document.getElementById("playerHealth").innerText = 0
+  }
+  else {
+    document.getElementById("playerHealth").innerText = player.health
+  }
   buttonBehavior()
   checkForKo()
 }
