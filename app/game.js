@@ -184,10 +184,8 @@ function totalItems() {
 
 var maxBossItems = 0
 function totalBossItems() {
-  debugger
   maxBossItems++
   if (maxBossItems == 1) {
-    console.log(maxBossItems)
     var myJSON = JSON.stringify(boss.items[0].name + ":  " + boss.items[0].description);
     document.getElementById("bossItem1").innerText = myJSON;
   }
@@ -334,7 +332,6 @@ function updateBoss() {
   checkForKo()
 }
 function updatePlayer() {
-  debugger
   document.getElementById("playerhits").innerText = player.hits
 
   if (player.health < 0) {
